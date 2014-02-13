@@ -76,7 +76,6 @@ extern "C" {
 #endif
   {
     ExampleApplication app;
-
     try {
       app.go();
     } catch( Ogre::Exception& e ) {

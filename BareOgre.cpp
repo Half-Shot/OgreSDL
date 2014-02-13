@@ -9,7 +9,10 @@
 #include <OgreViewport.h>
 #include <OgreWindowEventUtilities.h>
 
-BareOgre::BareOgre(void) 
+//Custom Includes
+
+
+OgreSDL::OgreSDL(void)
   : mRoot(0),
     mResourcesCfg(Ogre::StringUtil::BLANK),
     mPluginsCfg(Ogre::StringUtil::BLANK),
@@ -17,7 +20,7 @@ BareOgre::BareOgre(void)
 {
 }
 
-BareOgre::~BareOgre(void) 
+OgreSDL::~OgreSDL(void)
 {
   // Remove ourself as a window listener.
   Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -26,8 +29,10 @@ BareOgre::~BareOgre(void)
   delete mRoot;
 }
 
-bool BareOgre::go(void) 
+bool OgreSDL::go(void)
 {
+  fps = 60;
+  fpsTime = float(1) / float(fps);
   mLog = new Ogre::LogManager;
   mLog->createLog("Ogre.log");
 
@@ -38,20 +43,41 @@ bool BareOgre::go(void)
   mResourcesCfg = "resources.cfg";
   mPluginsCfg = "plugins.cfg";
 #endif
+  SDL_Init(SDL_INIT_VIDEO);
+  SDL_Window *sdlWindow = SDL_CreateWindow("OgreSDL",
+                                        SDL_WINDOWPOS_UNDEFINED,
+                                        SDL_WINDOWPOS_UNDEFINED,
+                                        640,
+                                        480,
+                                        SDL_WINDOW_OPENGL);
+  SDL_GLContext sdlGLcontext = SDL_GL_CreateContext(sdlWindow);
 
   mRoot = new Ogre::Root(mPluginsCfg);
-
   // Load resource paths from resources config file.
   setupResources();
 
   // Configure dialog.
-  if (!( mRoot->restoreConfig() || mRoot->showConfigDialog() )) {
+  if (!mRoot->restoreConfig()) {
     return false;
   }
 
-  // Create RenderWindow.
-  mWindow = mRoot->initialise(true, "BareOgre Render Window");
+   mRoot->initialise(false); //Creating our own window.
+   Ogre::NameValuePairList misc;
+   #ifdef WINDOWS
+        SDL_SysWMinfo wmInfo;
+        SDL_VERSION(&wmInfo.version);
+        SDL_GetWMInfo(&wmInfo);
 
+        size_t winHandle = reinterpret_cast<size_t>(wmInfo.window);
+        size_t winGlContext = reinterpret_cast<size_t>(wmInfo.hglrc);
+
+        misc["externalWindowHandle"] = StringConverter::toString(winHandle);
+        misc["externalGLContext"] = StringConverter::toString(winGlContext);
+    #else
+        misc["currentGLContext"] = "True";
+    #endif
+
+  mWindow = mRoot->createRenderWindow("MainRenderWindow", 640, 480, false, &misc);
   // Set default mipmap level.
   Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
   // Initialize all resource groups.
@@ -71,12 +97,13 @@ bool BareOgre::go(void)
 
   // Render loop.
   mRoot->addFrameListener(this);
+  mWindow->setVisible(true);
   mRoot->startRendering();
 
   return true;
 }
 
-void BareOgre::createScene()
+void OgreSDL::createScene()
 {
   // Create SceneManager.
   mSceneMgr = mRoot->createSceneManager("DefaultSceneManager");
@@ -117,29 +144,12 @@ void BareOgre::createScene()
   mDirection = Ogre::Vector3::ZERO;
 }
 
-void BareOgre::initInput() 
+void OgreSDL::initInput()
 {
-  mLog->logMessage("*** Initializing OIS ***");
-  OIS::ParamList pl;
-  size_t windowHnd = 0;
-  std::ostringstream windowHndStr;
-
-  mWindow->getCustomAttribute("WINDOW", &windowHnd);
-  windowHndStr << windowHnd;
-  pl.insert(std::make_pair(std::string("WINDOW"), windowHndStr.str()));
-
-  mInputManager = OIS::InputManager::createInputSystem( pl );
-  //TODO switch to buffered input
-  mKeyboard = static_cast<OIS::Keyboard*>(
-    mInputManager->createInputObject( OIS::OISKeyboard, true ));
-  mMouse = static_cast<OIS::Mouse*>(
-    mInputManager->createInputObject( OIS::OISMouse, true ));
-
-  mKeyboard->setEventCallback(this);
-  mMouse->setEventCallback(this);
+ return;
 }
 
-void BareOgre::setupResources() 
+void OgreSDL::setupResources()
 {
   Ogre::ConfigFile cf;
   cf.load(mResourcesCfg);
@@ -161,52 +171,41 @@ void BareOgre::setupResources()
   }
 }
 
-bool BareOgre::frameRenderingQueued(const Ogre::FrameEvent& evt)
+bool OgreSDL::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
   if (mWindow->isClosed()) return false;
   if (mShutdown) return false;
- 
-  // Need to capture/update each device.
-  mKeyboard->capture();
-  mMouse->capture();
- 
-  mCamNode->translate(mDirection * evt.timeSinceLastFrame,
-                      Ogre::Node::TS_LOCAL);
- 
+
   return true;
 }
 
-// Adjust mouse clipping area.
-void BareOgre::windowResized(Ogre::RenderWindow* rw)
+bool OgreSDL::frameEnded(const Ogre::FrameEvent& evt)
 {
-  unsigned int width, height, depth;
-  int left, top;
-  rw->getMetrics(width, height, depth, left, top);
- 
-  const OIS::MouseState &ms = mMouse->getMouseState();
-  ms.width = width;
-  ms.height = height;
+    if(evt.timeSinceLastFrame > fpsTime){
+        mRoot->renderOneFrame();
+        SDL_GL_SwapWindow(sdlWindow);
+    }
+    return true;
+}
+
+// Adjust mouse clipping area.
+void OgreSDL::windowResized(Ogre::RenderWindow* rw)
+{
+ return;
 }
  
 // Unattach OIS before window shutdown (very important under Linux).
-void BareOgre::windowClosed(Ogre::RenderWindow* rw)
+void OgreSDL::windowClosed(Ogre::RenderWindow* rw)
 {
-  // Only close for window that created OIS (the main window in these demos).
-  if (rw == mWindow) {
-    if (mInputManager) {
-      mInputManager->destroyInputObject( mMouse );
-      mInputManager->destroyInputObject( mKeyboard );
-      
-      OIS::InputManager::destroyInputSystem(mInputManager);
-      mInputManager = 0;
-    }
-  }
+  //Get rid of our SDL Stuff
+  SDL_Quit();
+  return;
 }
 
 //==============================================================================
 // User Input (OIS)
 //==============================================================================
-bool BareOgre::keyPressed( const OIS::KeyEvent& evt ) {
+bool OgreSDL::keyPressed( const OIS::KeyEvent& evt ) {
   mLog->logMessage("** Key Pressed **");
 
   switch (evt.key) {
@@ -256,7 +255,7 @@ bool BareOgre::keyPressed( const OIS::KeyEvent& evt ) {
   }
   return true;
 }
-bool BareOgre::keyReleased( const OIS::KeyEvent& evt ){
+bool OgreSDL::keyReleased( const OIS::KeyEvent& evt ){
   mLog->logMessage("** Key Released  **");
 
   switch (evt.key) {
@@ -296,7 +295,7 @@ bool BareOgre::keyReleased( const OIS::KeyEvent& evt ){
   return true;
 
 }
-bool BareOgre::mouseMoved( const OIS::MouseEvent& evt )
+bool OgreSDL::mouseMoved( const OIS::MouseEvent& evt )
 {
   //if (evt.state.buttonDown(OIS::MB_Right)) {
     mCamNode->yaw(Ogre::Degree(-mRotate * evt.state.X.rel),
@@ -306,7 +305,7 @@ bool BareOgre::mouseMoved( const OIS::MouseEvent& evt )
   //}
   return true;
 }
-bool BareOgre::mousePressed( const OIS::MouseEvent& evt, OIS::MouseButtonID id )
+bool OgreSDL::mousePressed( const OIS::MouseEvent& evt, OIS::MouseButtonID id )
 {
   switch (id) {
     case OIS::MB_Left:
@@ -316,8 +315,7 @@ bool BareOgre::mousePressed( const OIS::MouseEvent& evt, OIS::MouseButtonID id )
   }
   return true;
 }
-bool BareOgre::mouseReleased( const OIS::MouseEvent& evt,
-                             OIS::MouseButtonID id )
+bool OgreSDL::mouseReleased( const OIS::MouseEvent& evt,OIS::MouseButtonID id )
 {
   return true;
 }

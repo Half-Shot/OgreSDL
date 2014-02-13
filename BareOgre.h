@@ -1,22 +1,24 @@
 #ifndef __BareOgre_h_
 #define __BareOgre_h_
 
+#include <SDL2/SDL.h>
 #include <OgreRoot.h>
 #include <OgreWindowEventUtilities.h>
-
 #include <OISEvents.h>
 #include <OISInputManager.h>
 #include <OISKeyboard.h>
 #include <OISMouse.h>
 
-class BareOgre : public Ogre::WindowEventListener, 
+using namespace std;
+
+class OgreSDL : public Ogre::WindowEventListener, 
   public Ogre::FrameListener, 
   public OIS::KeyListener, 
   public OIS::MouseListener
 {
  public:
-  BareOgre(void);
-  virtual ~BareOgre(void);
+  OgreSDL(void);
+  virtual ~OgreSDL(void);
   virtual bool go(void);
  protected:
   virtual void createScene();
@@ -24,6 +26,7 @@ class BareOgre : public Ogre::WindowEventListener,
   virtual void setupResources();
 
   virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
+  virtual bool frameEnded(const Ogre::FrameEvent& evt);
 
   // Ogre::WindowEventListener
   virtual void windowResized(Ogre::RenderWindow* rw);
@@ -45,6 +48,11 @@ class BareOgre : public Ogre::WindowEventListener,
   Ogre::LogManager* mLog;
   Ogre::RenderWindow* mWindow;
   Ogre::SceneManager* mSceneMgr;
+  //SDL
+  SDL_Window* sdlWindow;
+  SDL_GLContext* sdlGLcontext;
+  int fps;
+  float fpsTime;
   bool mShutdown;
 
   Ogre::Camera* mCamera;

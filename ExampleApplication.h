@@ -3,7 +3,7 @@
 
 #include "BareOgre.h"
 
-class ExampleApplication : public BareOgre
+class ExampleApplication : public OgreSDL
 {
  public:
   ExampleApplication();

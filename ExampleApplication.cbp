@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="ExampleApplication" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;CMake Files\CMakeConfigs\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ExampleApplication">
+         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/ExampleApplication" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/will/GitRepos/OgreSDL/dist/bin" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DBOOST_ALL_NO_LIB" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/OGRE" />
+            <Add directory="/usr/include/OGRE/Overlay" />
+            <Add directory="/usr/include/OIS" />
+            <Add directory="/usr/include/SDL2" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2/backward" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2/x86_64-unknown-linux-gnu" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include-fixed" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/share/OGRE/samples/Common/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 ExampleApplication" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ExampleApplication/fast">
+         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/ExampleApplication" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/will/GitRepos/OgreSDL/dist/bin" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DBOOST_ALL_NO_LIB" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/OGRE" />
+            <Add directory="/usr/include/OGRE/Overlay" />
+            <Add directory="/usr/include/OIS" />
+            <Add directory="/usr/include/SDL2" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2/backward" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../include/c++/4.8.2/x86_64-unknown-linux-gnu" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include" />
+            <Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include-fixed" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/share/OGRE/samples/Common/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 ExampleApplication/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 install" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/local">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 install/local" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/strip">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 install/strip" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="list_install_components">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 list_install_components" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/will/GitRepos/OgreSDL" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/will/GitRepos/OgreSDL/BareOgre.cpp">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/ExampleApplication.cpp">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/BareOgre.h">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/ExampleApplication.h">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/../../../../usr/local/lib/OGRE/cmake/FindOGRE.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/../../../../usr/local/lib/OGRE/cmake/FindPkgMacros.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/../../../../usr/local/lib/OGRE/cmake/PreprocessorUtils.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/../../../../usr/local/lib/OGRE/cmake/FindOIS.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/../../../../usr/local/lib/OGRE/cmake/FindPkgMacros.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/CMakeConfigs/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\CMakeConfigs\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

@@ -13,6 +13,7 @@ endif(WIN32)
 
 if(UNIX)
   set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++0x")
+  set(CMAKE_MODULE_PATH "CMakeConfigs/;${CMAKE_MODULE_PATH}")
   if(EXISTS "/usr/local/lib/OGRE/cmake")
     set(CMAKE_MODULE_PATH "/usr/local/lib/OGRE/cmake/;${CMAKE_MODULE_PATH}")
     set(OGRE_SAMPLES_INCLUDEPATH "/usr/local/share/OGRE/samples/Common/include/")
@@ -36,6 +37,8 @@ set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/dist")
 
 
 find_package(OGRE REQUIRED)
+
+find_package(SDL2 REQUIRED)
 
 # Add OgreTerrain.{so,dll,etc.} to our linked libraries
 #   These variables are defined in FindOGRE.cmake, mine is
@@ -139,6 +142,12 @@ target_link_libraries(
   #${CEGUI_LIBRARIES}
   #${CEGUIOGRE_LIBRARIES}
 )
+
+if (SDL2_FOUND)
+  include_directories(${SDL2_INCLUDE_DIRS})
+  target_link_libraries(${APPLICATION_NAME} ${SDL2_LIBRARIES})
+endif (BZIP2_FOUND)
+
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)
