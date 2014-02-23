@@ -8,6 +8,7 @@ SET(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "CMakeConfigs/FindSDL2.cmake"
+  "CMakeConfigs/FindSDL2_Mixer.cmake"
   "CMakeFiles/2.8.12.2/CMakeCCompiler.cmake"
   "CMakeFiles/2.8.12.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
@@ -55,5 +56,5 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ExampleApplication.dir/DependInfo.cmake"
+  "CMakeFiles/OgreSDL.dir/DependInfo.cmake"
   )

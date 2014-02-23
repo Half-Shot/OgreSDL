@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
    <FileVersion major="1" minor="6" />
    <Project>
-      <Option title="ExampleApplication" />
+      <Option title="OgreSDL" />
       <Option makefile_is_custom="1" />
       <Option compiler="gcc" />
       <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;CMake Files\CMakeConfigs\;" />
@@ -17,8 +17,8 @@
             <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
-      <Target title="ExampleApplication">
-         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/ExampleApplication" prefix_auto="0" extension_auto="0" />
+      <Target title="OgreSDL">
+         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/OgreSDL_d" prefix_auto="0" extension_auto="0" />
          <Option working_dir="/home/will/GitRepos/OgreSDL/dist/bin" />
          <Option object_output="./" />
          <Option type="0" />
@@ -39,14 +39,14 @@
             <Add directory="/usr/local/share/OGRE/samples/Common/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 ExampleApplication" />
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 OgreSDL" />
             <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
             <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
             <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
-      <Target title="ExampleApplication/fast">
-         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/ExampleApplication" prefix_auto="0" extension_auto="0" />
+      <Target title="OgreSDL/fast">
+         <Option output="/home/will/GitRepos/OgreSDL/dist/bin/OgreSDL_d" prefix_auto="0" extension_auto="0" />
          <Option working_dir="/home/will/GitRepos/OgreSDL/dist/bin" />
          <Option object_output="./" />
          <Option type="0" />
@@ -67,7 +67,7 @@
             <Add directory="/usr/local/share/OGRE/samples/Common/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 ExampleApplication/fast" />
+            <Build command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 OgreSDL/fast" />
             <CompileFile command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
             <Clean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
             <DistClean command="/usr/bin/make -f &quot;/home/will/GitRepos/OgreSDL/Makefile&quot;  VERBOSE=1 clean" />
@@ -124,13 +124,17 @@
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="/home/will/GitRepos/OgreSDL/BareOgre.cpp">
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/ExampleGame.cpp">
       </Unit>
-      <Unit filename="/home/will/GitRepos/OgreSDL/ExampleApplication.cpp">
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/OgreSDL.cpp">
       </Unit>
-      <Unit filename="/home/will/GitRepos/OgreSDL/BareOgre.h">
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/Program.cpp">
       </Unit>
-      <Unit filename="/home/will/GitRepos/OgreSDL/ExampleApplication.h">
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/ExampleGame.h">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/OgreSDL.h">
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/src/Program.h">
       </Unit>
       <Unit filename="/home/will/GitRepos/OgreSDL/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
@@ -151,6 +155,9 @@
           <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\" />
       </Unit>
       <Unit filename="/home/will/GitRepos/OgreSDL/CMakeConfigs/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\CMakeConfigs\" />
+      </Unit>
+      <Unit filename="/home/will/GitRepos/OgreSDL/CMakeConfigs/FindSDL2_Mixer.cmake">
           <Option virtualFolder="CMake Files\CMakeConfigs\" />
       </Unit>
    </Project>

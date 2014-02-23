@@ -56,38 +56,38 @@ CMAKE_SOURCE_DIR = /home/will/GitRepos/OgreSDL
 CMAKE_BINARY_DIR = /home/will/GitRepos/OgreSDL
 
 #=============================================================================
-# Target rules for target CMakeFiles/ExampleApplication.dir
+# Target rules for target CMakeFiles/OgreSDL.dir
 
 # All Build rule for target.
-CMakeFiles/ExampleApplication.dir/all:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/depend
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/will/GitRepos/OgreSDL/CMakeFiles  1 2
-	@echo "Built target ExampleApplication"
-.PHONY : CMakeFiles/ExampleApplication.dir/all
+CMakeFiles/OgreSDL.dir/all:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/depend
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/will/GitRepos/OgreSDL/CMakeFiles  1 2 3
+	@echo "Built target OgreSDL"
+.PHONY : CMakeFiles/OgreSDL.dir/all
 
 # Include target in all.
-all: CMakeFiles/ExampleApplication.dir/all
+all: CMakeFiles/OgreSDL.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ExampleApplication.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/will/GitRepos/OgreSDL/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExampleApplication.dir/all
+CMakeFiles/OgreSDL.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/will/GitRepos/OgreSDL/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OgreSDL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/will/GitRepos/OgreSDL/CMakeFiles 0
-.PHONY : CMakeFiles/ExampleApplication.dir/rule
+.PHONY : CMakeFiles/OgreSDL.dir/rule
 
 # Convenience name for target.
-ExampleApplication: CMakeFiles/ExampleApplication.dir/rule
-.PHONY : ExampleApplication
+OgreSDL: CMakeFiles/OgreSDL.dir/rule
+.PHONY : OgreSDL
 
 # clean rule for target.
-CMakeFiles/ExampleApplication.dir/clean:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/clean
-.PHONY : CMakeFiles/ExampleApplication.dir/clean
+CMakeFiles/OgreSDL.dir/clean:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/clean
+.PHONY : CMakeFiles/OgreSDL.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/ExampleApplication.dir/clean
+clean: CMakeFiles/OgreSDL.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -20,4 +20,7 @@
 *.out
 *.app
 
+#My Music Stuff (Sorry, its not legal)
+*.flac
+
 dist/bin/ExampleApplication

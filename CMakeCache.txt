@@ -56,9 +56,9 @@ Boost_THREAD_LIBRARY_RELEASE:FILEPATH=/usr/lib64/libboost_thread.so
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//Choose the type of build, options are: None (CMAKE_CXX_FLAGS
-// or CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+//Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
+// CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //The CodeBlocks executable
 CMAKE_CODEBLOCKS_EXECUTABLE:FILEPATH=/usr/bin/codeblocks
@@ -158,7 +158,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ExampleApplication
+CMAKE_PROJECT_NAME:STATIC=OgreSDL
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -464,6 +464,12 @@ OIS_LIBRARY_FWK:STRING=NOTFOUND
 //x
 OIS_LIBRARY_REL:FILEPATH=/usr/lib64/libOIS.so
 
+//Value Computed by CMake
+OgreSDL_BINARY_DIR:STATIC=/home/will/GitRepos/OgreSDL
+
+//Value Computed by CMake
+OgreSDL_SOURCE_DIR:STATIC=/home/will/GitRepos/OgreSDL
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -478,6 +484,18 @@ SDL2_INCLUDE_DIR:PATH=/usr/include/SDL2
 
 //Where the SDL2 Library can be found
 SDL2_LIBRARY:STRING=/usr/lib64/libSDL2.so;-lpthread
+
+//The directory containing a CMake configuration file for SDL2_Mixer.
+SDL2_Mixer_DIR:PATH=SDL2_Mixer_DIR-NOTFOUND
+
+//Found SDL2_Mixer library
+SDLMIXER_FOUND:BOOL=1
+
+//Path to a file.
+SDLMIXER_INCLUDE_DIR:PATH=/usr/include/SDL2
+
+//Path to a library.
+SDLMIXER_LIBRARY:FILEPATH=/usr/lib64/libSDL2_mixer.so
 
 
 ########################
@@ -912,7 +930,7 @@ SDL2_LDFLAGS_OTHER:INTERNAL=
 SDL2_LIBDIR:INTERNAL=/usr/lib
 SDL2_LIBRARIES:INTERNAL=SDL2;pthread
 SDL2_LIBRARY_DIRS:INTERNAL=
-SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib64/libSDL2.so;-lpthread;-lpthread
+SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib64/libSDL2.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
 SDL2_LIBS:INTERNAL=
 SDL2_LIBS_L:INTERNAL=
 SDL2_LIBS_OTHER:INTERNAL=
@@ -936,6 +954,12 @@ SDL2_sdl2_INCLUDEDIR:INTERNAL=
 SDL2_sdl2_LIBDIR:INTERNAL=
 SDL2_sdl2_PREFIX:INTERNAL=
 SDL2_sdl2_VERSION:INTERNAL=
+//ADVANCED property for variable: SDLMIXER_FOUND
+SDLMIXER_FOUND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDLMIXER_INCLUDE_DIR
+SDLMIXER_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDLMIXER_LIBRARY
+SDLMIXER_LIBRARY-ADVANCED:INTERNAL=1
 //Last used Boost_ADDITIONAL_VERSIONS value.
 _Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.53;1.53.0;1.52;1.52.0;1.51;1.51.0;1.50;1.50.0;1.49;1.49.0;1.48;1.48.0;1.47;1.47.0;1.46;1.46.0;1.45;1.45.0;1.44;1.44.0;1.42;1.42.0;1.41.0;1.41;1.40.0;1.40
 //Components requested for this build tree.

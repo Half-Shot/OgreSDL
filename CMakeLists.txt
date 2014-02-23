@@ -1,18 +1,17 @@
 cmake_minimum_required(VERSION 2.8)
 
-set(APPLICATION_NAME "ExampleApplication")
+set(APPLICATION_NAME "OgreSDL")
 
 project(${APPLICATION_NAME})
 
+#set(OGRE_STATIC TRUE)
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++0x")
+set(SRC_DIR "./src")
 if(WIN32)
-  #set(OGRE_STATIC TRUE)
-  set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++0x")
   set(CMAKE_MODULE_PATH "$ENV{OGRE_HOME}/CMake/;${CMAKE_MODULE_PATH}")
   set(OGRE_SAMPLES_INCLUDEPATH "$ENV{OGRE_HOME}/Samples/include")
 endif(WIN32)
-
 if(UNIX)
-  set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++0x")
   set(CMAKE_MODULE_PATH "CMakeConfigs/;${CMAKE_MODULE_PATH}")
   if(EXISTS "/usr/local/lib/OGRE/cmake")
     set(CMAKE_MODULE_PATH "/usr/local/lib/OGRE/cmake/;${CMAKE_MODULE_PATH}")
@@ -40,40 +39,14 @@ find_package(OGRE REQUIRED)
 
 find_package(SDL2 REQUIRED)
 
-# Add OgreTerrain.{so,dll,etc.} to our linked libraries
-#   These variables are defined in FindOGRE.cmake, mine is
-#   found at /usr/local/lib/OGRE/cmake/
-# if(OGRE_Terrain_FOUND)
-# # pretty sure the following include is unneeded
-#   # include_directories(${OGRE_Terrain_INCLUDE_DIRS})
-# # append OgreTerrain to the end of the OGRE_LIBRARIES variable
-#   set(OGRE_LIBRARIES ${OGRE_LIBRARIES} ${OGRE_Terrain_LIBRARIES})  
-#   message(STATUS "Found OGRE_Terrain: ${OGRE_Terrain_LIBRARIES}")
-# else(OGRE_Terrain_FOUND)
-#   message(SEND_ERROR "OgreTerrain Library not found.")
-# endif(OGRE_Terrain_FOUND)
-
+find_package(SDL2_Mixer REQUIRED)
 
 find_package(OIS REQUIRED)
+
 
 if(NOT OIS_FOUND)
 	message(SEND_ERROR "Failed to find OIS.")
 endif()
-
-
-# find_package(CEGUI REQUIRED)
-
-# if(NOT CEGUI_FOUND)
-#   message(SEND_ERROR "Failed to find CEGUI.")
-# endif()
-
-# find_package(CEGUIOGRE REQUIRED)
-
-# if(NOT CEGUIOGRE_FOUND)
-#   message(SEND_ERROR "Failed to find CEGUIOGRE.")
-# endif()
-
-
 # Find Boost
 # Prefer static linking in all cases
 if (WIN32 OR APPLE)
@@ -115,13 +88,15 @@ if(Boost_FOUND)
 endif()
 
 set(HDRS
-  ./BareOgre.h
-  ${APPLICATION_NAME}.h
+  ${SRC_DIR}/Program.h
+  ${SRC_DIR}/OgreSDL.h
+  ${SRC_DIR}/ExampleGame.h
 )
 
 set(SRCS
-  ./BareOgre.cpp
-  ${APPLICATION_NAME}.cpp
+  ${SRC_DIR}/Program.cpp
+  ${SRC_DIR}/OgreSDL.cpp
+  ${SRC_DIR}/ExampleGame.cpp
 )
 
 include_directories( 
@@ -146,8 +121,12 @@ target_link_libraries(
 if (SDL2_FOUND)
   include_directories(${SDL2_INCLUDE_DIRS})
   target_link_libraries(${APPLICATION_NAME} ${SDL2_LIBRARIES})
-endif (BZIP2_FOUND)
+endif (SDL2_FOUND)
 
+if (SDLMIXER_FOUND)
+  include_directories(${SDLMIXER_INCLUDE_DIR})
+  target_link_libraries(${APPLICATION_NAME} ${SDLMIXER_LIBRARY})
+endif (SDLMIXER_FOUND)
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)

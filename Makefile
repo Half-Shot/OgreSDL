@@ -143,65 +143,89 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ExampleApplication
+# Target rules for targets named OgreSDL
 
 # Build rule for target.
-ExampleApplication: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExampleApplication
-.PHONY : ExampleApplication
+OgreSDL: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OgreSDL
+.PHONY : OgreSDL
 
 # fast build rule for target.
-ExampleApplication/fast:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/build
-.PHONY : ExampleApplication/fast
+OgreSDL/fast:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/build
+.PHONY : OgreSDL/fast
 
-BareOgre.o: BareOgre.cpp.o
-.PHONY : BareOgre.o
-
-# target to build an object file
-BareOgre.cpp.o:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/BareOgre.cpp.o
-.PHONY : BareOgre.cpp.o
-
-BareOgre.i: BareOgre.cpp.i
-.PHONY : BareOgre.i
-
-# target to preprocess a source file
-BareOgre.cpp.i:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/BareOgre.cpp.i
-.PHONY : BareOgre.cpp.i
-
-BareOgre.s: BareOgre.cpp.s
-.PHONY : BareOgre.s
-
-# target to generate assembly for a file
-BareOgre.cpp.s:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/BareOgre.cpp.s
-.PHONY : BareOgre.cpp.s
-
-ExampleApplication.o: ExampleApplication.cpp.o
-.PHONY : ExampleApplication.o
+src/ExampleGame.o: src/ExampleGame.cpp.o
+.PHONY : src/ExampleGame.o
 
 # target to build an object file
-ExampleApplication.cpp.o:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/ExampleApplication.cpp.o
-.PHONY : ExampleApplication.cpp.o
+src/ExampleGame.cpp.o:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o
+.PHONY : src/ExampleGame.cpp.o
 
-ExampleApplication.i: ExampleApplication.cpp.i
-.PHONY : ExampleApplication.i
+src/ExampleGame.i: src/ExampleGame.cpp.i
+.PHONY : src/ExampleGame.i
 
 # target to preprocess a source file
-ExampleApplication.cpp.i:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/ExampleApplication.cpp.i
-.PHONY : ExampleApplication.cpp.i
+src/ExampleGame.cpp.i:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.i
+.PHONY : src/ExampleGame.cpp.i
 
-ExampleApplication.s: ExampleApplication.cpp.s
-.PHONY : ExampleApplication.s
+src/ExampleGame.s: src/ExampleGame.cpp.s
+.PHONY : src/ExampleGame.s
 
 # target to generate assembly for a file
-ExampleApplication.cpp.s:
-	$(MAKE) -f CMakeFiles/ExampleApplication.dir/build.make CMakeFiles/ExampleApplication.dir/ExampleApplication.cpp.s
-.PHONY : ExampleApplication.cpp.s
+src/ExampleGame.cpp.s:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.s
+.PHONY : src/ExampleGame.cpp.s
+
+src/OgreSDL.o: src/OgreSDL.cpp.o
+.PHONY : src/OgreSDL.o
+
+# target to build an object file
+src/OgreSDL.cpp.o:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/OgreSDL.cpp.o
+.PHONY : src/OgreSDL.cpp.o
+
+src/OgreSDL.i: src/OgreSDL.cpp.i
+.PHONY : src/OgreSDL.i
+
+# target to preprocess a source file
+src/OgreSDL.cpp.i:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/OgreSDL.cpp.i
+.PHONY : src/OgreSDL.cpp.i
+
+src/OgreSDL.s: src/OgreSDL.cpp.s
+.PHONY : src/OgreSDL.s
+
+# target to generate assembly for a file
+src/OgreSDL.cpp.s:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/OgreSDL.cpp.s
+.PHONY : src/OgreSDL.cpp.s
+
+src/Program.o: src/Program.cpp.o
+.PHONY : src/Program.o
+
+# target to build an object file
+src/Program.cpp.o:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/Program.cpp.o
+.PHONY : src/Program.cpp.o
+
+src/Program.i: src/Program.cpp.i
+.PHONY : src/Program.i
+
+# target to preprocess a source file
+src/Program.cpp.i:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/Program.cpp.i
+.PHONY : src/Program.cpp.i
+
+src/Program.s: src/Program.cpp.s
+.PHONY : src/Program.s
+
+# target to generate assembly for a file
+src/Program.cpp.s:
+	$(MAKE) -f CMakeFiles/OgreSDL.dir/build.make CMakeFiles/OgreSDL.dir/src/Program.cpp.s
+.PHONY : src/Program.cpp.s
 
 # Help Target
 help:
@@ -209,19 +233,22 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... ExampleApplication"
+	@echo "... OgreSDL"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... BareOgre.o"
-	@echo "... BareOgre.i"
-	@echo "... BareOgre.s"
-	@echo "... ExampleApplication.o"
-	@echo "... ExampleApplication.i"
-	@echo "... ExampleApplication.s"
+	@echo "... src/ExampleGame.o"
+	@echo "... src/ExampleGame.i"
+	@echo "... src/ExampleGame.s"
+	@echo "... src/OgreSDL.o"
+	@echo "... src/OgreSDL.i"
+	@echo "... src/OgreSDL.s"
+	@echo "... src/Program.o"
+	@echo "... src/Program.i"
+	@echo "... src/Program.s"
 .PHONY : help
 
 
