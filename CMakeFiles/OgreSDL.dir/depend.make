@@ -4,6 +4,7 @@
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: src/ExampleGame.cpp
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: src/ExampleGame.h
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: src/OgreSDL.h
+CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: src/Program.h
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: /usr/include/OGRE/GLX/OgreTimerImp.h
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: /usr/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/OgreSDL.dir/src/ExampleGame.cpp.o: /usr/include/OGRE/OgreAnimable.h

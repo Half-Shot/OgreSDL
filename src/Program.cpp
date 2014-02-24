@@ -21,12 +21,19 @@ Program::~Program()
 extern "C" {
 #endif
 
+void siginthandler(int param)
+{
+    cout << "SIGINT requested application quit." << endl;
+    exit(1);
+}
+
 #if WINDOWS
   INT WINAPI WinMain( HINSTANCE hInst, HINSTANCE, LPSTR strCmdLine, INT )
 #else
     int main(int argc, char *argv[]) 
 #endif
   {
+    signal(SIGINT, siginthandler);
     try {
         ExampleGame game = ExampleGame();
         game.go();

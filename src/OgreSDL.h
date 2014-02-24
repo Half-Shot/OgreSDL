@@ -2,8 +2,9 @@
 #define __OgreSDL_h_
 
 #include <SDL2/SDL.h>
+#ifdef SDL2_SOUND_ENABLED
 #include <SDL2/SDL_mixer.h>
-
+#endif
 #include <OgreRoot.h>
 #include <OgreWindowEventUtilities.h>
 #include <OgreEntity.h>

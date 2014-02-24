@@ -34,7 +34,6 @@ void ExampleGame::createScene()
     mCamera->setAspectRatio(Ogre::Real(mViewport->getActualWidth() / Ogre::Real(mViewport->getActualHeight())));
 
     // Add lighting.
-    //mSceneMgr->setAmbientLight(Ogre::ColourValue(0.5,0.5,0.5));
     mSceneMgr->setAmbientLight(Ogre::ColourValue(1.0,1.0,1.0));
 
 
@@ -52,20 +51,24 @@ void ExampleGame::createScene()
 
     rotAngle = Ogre::Radian(0.0174532925);
     rotTimer = Ogre::Timer();
-//    if(Mix_Init(MIX_INIT_FLAC) == -1)
-//        cerr << "Mixer couldn't init, prepare for some bad crap!" << endl;
-//    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
-//        cerr << "Mixer couldn't open audio, prepare for some bad crap!" << endl;
-//    Mix_AllocateChannels(0);
-//    backgroundTrack = Mix_LoadMUS("sampletrack.flac");
+    #ifdef SDL2_SOUND_ENABLED
+    if(Mix_Init(MIX_INIT_FLAC) == -1)
+        cerr << "Mixer couldn't init, prepare for some bad crap!" << endl;
+    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
+        cerr << "Mixer couldn't open audio, prepare for some bad crap!" << endl;
+    Mix_AllocateChannels(0);
+    backgroundTrack = Mix_LoadMUS("sampletrack.flac");
+    #endif
 }
 
 void ExampleGame::update(Ogre::FrameEvent frameEvent)
 {
-//    if(!Mix_PlayingMusic())
-//    {
-//        Mix_PlayMusic(backgroundTrack,1);
-//    }
+    #ifdef SDL2_SOUND_ENABLED
+    if(!Mix_PlayingMusic())
+    {
+        Mix_PlayMusic(backgroundTrack,1);
+    }
+    #endif
     if(rotTimer.getMilliseconds() >= (1000 / 20))
     {
         headNode->yaw(rotAngle);

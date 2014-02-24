@@ -6,11 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/home/will/GitRepos/OgreSDL/src/ExampleGame.cpp
+ExampleGame.h
 /home/will/GitRepos/OgreSDL/src/ExampleGame.h
+
+/home/will/GitRepos/OgreSDL/src/ExampleGame.h
+Program.h
+/home/will/GitRepos/OgreSDL/src/Program.h
 OgreSDL.h
 /home/will/GitRepos/OgreSDL/src/OgreSDL.h
 SDL2/SDL.h
 -
+SDL2/SDL_mixer.h
+-
+
+/home/will/GitRepos/OgreSDL/src/OgreSDL.cpp
+OgreSDL.h
+/home/will/GitRepos/OgreSDL/src/OgreSDL.h
 
 /home/will/GitRepos/OgreSDL/src/OgreSDL.h
 SDL2/SDL.h
@@ -52,6 +64,10 @@ OgreSDL.h
 ExampleGame.h
 /home/will/GitRepos/OgreSDL/src/ExampleGame.h
 SDL2/SDL.h
+-
+signal.h
+-
+stdio.h
 -
 
 /usr/include/OGRE/GLX/OgreTimerImp.h
